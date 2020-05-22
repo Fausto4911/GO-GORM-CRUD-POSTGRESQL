@@ -1,17 +1,15 @@
 package client
 
 import (
-	"context"
 	"errors"
 	"github.com/jinzhu/gorm"
 	"go-gorm-crud-postgresql/model"
 )
 
 type IClientRepository struct {
-	Ctx context.Context
 }
 
-func (repo IClientRepository) Save(client *model.Client, db gorm.DB) error {
+func (repo IClientRepository) Save(client *model.Client, db *gorm.DB) error {
 	b := db.NewRecord(client) // => returns `true` as primary key is blank
 	if !b {
 		errors.New("Require ID as zero value")

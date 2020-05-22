@@ -5,12 +5,12 @@ import (
 )
 
 type Client struct {
-	Id       uint   `gorm:"primary_key"`
-	Email    string `gorm:"not null"`
-	Password string `gorm:"not null"`
-	NickName string
+	Id       uint      `gorm:"primary_key"`
+	Email    string    `gorm:"not null"`
+	Password string    `gorm:"not null"`
+	NickName string    `gorm:"default: null"`
 	CreateAt time.Time `gorm:"default: NOW()"`
-	UpdateAt time.Time
+	UpdateAt time.Time `gorm:"default: null"`
 }
 
 // Set Client's table name to be `client`
